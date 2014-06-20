@@ -148,13 +148,28 @@ function convertToDateTime(datestring, timestring) {
     var _date = datestring.split('.');
     var _time = timestring.split(':');
     var dateelement = new Date();
+    var offSet = 1;
+    if(new Date().isSummerTime()) {
+		offSet = 2;
+	}
+    
     dateelement.setDate(_date[0]);
     dateelement.setMonth(_date[1]-1);
     dateelement.setYear(_date[2]);
-    dateelement.setHours(_time[0]);
-    dateelement.setMinutes(_time[1]);
-    dateelement.setSeconds(_time[2]);
+    dateelement.setUTCHours(_time[0]-offSet);
+    dateelement.setUTCMinutes(_time[1]);
+    dateelement.setUTCSeconds(_time[2]);
     return dateelement;
+}
+
+Date.prototype.stdTimezoneOffset = function() {
+var jan = new Date(this.getFullYear(), 0, 1);
+var jul = new Date(this.getFullYear(), 6, 1);
+return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
+}
+
+Date.prototype.isSummerTime = function() {
+return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
 http.createServer(app).listen(app.get('port'), function(){
