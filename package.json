@@ -1,0 +1,10 @@
+{
+  "name": "gewinnspiel",
+  "description": "gewinnspiel 2014 für CodeTalks",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.3",
+    "mongodb": "^1.4.7"
+  }
+}
