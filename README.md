@@ -29,7 +29,7 @@ Aufbau:
 		<td></td><td>PARAM:</td><td>date</td><td>STRING</td><td>Datum ab dem gesucht werden soll z.B. 25.10.2014</td>
 	</tr>
 	<tr>
-		<td></td><td></td><td>time</td><td>STRING</td><tdUhrzeit ab der gesucht werden soll z.B. 15:30:25</td>
+		<td></td><td></td><td>time</td><td>STRING</td><td>Uhrzeit ab der gesucht werden soll z.B. 15:30:25</td>
 	</tr>
 	<tr>
 		<td></td><td>Return:</td><td>list</td><td>JSON-Array</td><td>Liste aller Posts, neuer als das übergebene Datum</td>
